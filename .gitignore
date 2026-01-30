@@ -20,3 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 .vercel
+
+# Compound engineering
+logs/
+progress.txt
+prd.json
+.env.local

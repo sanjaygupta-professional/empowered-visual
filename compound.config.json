@@ -1,0 +1,12 @@
+{
+  "tool": "claude",
+  "reportsDir": "./reports",
+  "outputDir": "./compound",
+  "tasksDir": "./tasks",
+  "logsDir": "./logs",
+  "qualityChecks": ["npm run build"],
+  "maxIterations": 15,
+  "branchPrefix": "compound/",
+  "projectName": "empowered-visual",
+  "description": "Visual companion for EMPOWERED by Marty Cagan"
+}
