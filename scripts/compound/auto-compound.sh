@@ -119,9 +119,9 @@ Break the work into 1-3 small user stories. Each should be independently testabl
 log "Starting execution loop..."
 "$PROJECT_DIR/scripts/compound/loop.sh" "$MAX_ITERATIONS" 2>&1 | tee -a "$LOG_FILE"
 
-# Check if all tasks passed
+# Check if all tasks passed (works without jq)
 if [ -f "prd.json" ]; then
-    REMAINING=$(jq '[.userStories[] | select(.passes == false)] | length' prd.json 2>/dev/null || echo "1")
+    REMAINING=$(grep -c '"passes": false' prd.json 2>/dev/null || echo "0")
     if [ "$REMAINING" -eq 0 ]; then
         log "All tasks completed successfully!"
     else

@@ -42,7 +42,15 @@ case "${1:-menu}" in
         echo ""
         if [ -f "prd.json" ]; then
             echo "Tasks:"
-            jq -r '.userStories[] | "  " + (if .passes then "✅" else "⬜" end) + " " + .title' prd.json
+            # Parse without jq - extract titles and passes status
+            python3 -c "
+import json
+with open('prd.json') as f:
+    data = json.load(f)
+for story in data.get('userStories', []):
+    status = '✅' if story.get('passes') else '⬜'
+    print(f'  {status} {story.get(\"title\", \"Unknown\")}')
+" 2>/dev/null || echo "  (install python3 to see task details)"
         else
             echo "No prd.json found"
         fi

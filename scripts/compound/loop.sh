@@ -25,8 +25,8 @@ while [ $ITERATION -lt $MAX_ITERATIONS ]; do
     echo "=== Iteration $ITERATION of $MAX_ITERATIONS ==="
     echo "Time: $(date '+%Y-%m-%d %H:%M:%S')"
 
-    # Check if all tasks are done
-    REMAINING=$(jq '[.userStories[] | select(.passes == false)] | length' prd.json 2>/dev/null || echo "0")
+    # Check if all tasks are done (works without jq)
+    REMAINING=$(grep -c '"passes": false' prd.json 2>/dev/null || echo "0")
 
     if [ "$REMAINING" -eq 0 ]; then
         echo "✅ All tasks complete!"
@@ -35,8 +35,16 @@ while [ $ITERATION -lt $MAX_ITERATIONS ]; do
 
     echo "Tasks remaining: $REMAINING"
 
-    # Get next task info for logging
-    NEXT_TASK=$(jq -r '.userStories[] | select(.passes == false) | .title' prd.json | head -1)
+    # Get next task info for logging (works without jq)
+    NEXT_TASK=$(python3 -c "
+import json
+with open('prd.json') as f:
+    data = json.load(f)
+for story in data.get('userStories', []):
+    if not story.get('passes'):
+        print(story.get('title', 'Unknown'))
+        break
+" 2>/dev/null || echo "Next task")
     echo "Working on: $NEXT_TASK"
 
     # Run agent on next task
