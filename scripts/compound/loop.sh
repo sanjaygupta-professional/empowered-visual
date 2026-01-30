@@ -26,7 +26,8 @@ while [ $ITERATION -lt $MAX_ITERATIONS ]; do
     echo "Time: $(date '+%Y-%m-%d %H:%M:%S')"
 
     # Check if all tasks are done (works without jq)
-    REMAINING=$(grep -c '"passes": false' prd.json 2>/dev/null || echo "0")
+    REMAINING=$(grep -c '"passes": false' prd.json 2>/dev/null | tr -d '\n' || echo "0")
+    REMAINING=${REMAINING:-0}
 
     if [ "$REMAINING" -eq 0 ]; then
         echo "✅ All tasks complete!"
