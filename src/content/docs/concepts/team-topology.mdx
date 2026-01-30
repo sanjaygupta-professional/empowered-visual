@@ -1,0 +1,79 @@
+---
+title: Team Topology
+description: How to structure teams for empowerment
+---
+
+# Team Topology
+
+## Concept Overview
+
+Team topology is about structuring product teams for ownership, autonomy, and alignment.
+
+```mermaid
+mindmap
+  root((Team Topology))
+    Principles
+      Ownership
+      Autonomy
+      Alignment
+    Team Types
+      Platform teams
+      Experience teams
+    Considerations
+      Dependencies
+      Proximity
+      Evolution
+```
+
+## The Three Pillars
+
+```mermaid
+flowchart TB
+    subgraph Pillars["TOPOLOGY PILLARS"]
+        Ownership["OWNERSHIP<br/>Clear areas of responsibility"]
+        Autonomy["AUTONOMY<br/>Ability to act independently"]
+        Alignment["ALIGNMENT<br/>Connected to strategy"]
+    end
+
+    Ownership --> Empowered["Empowered<br/>Teams"]
+    Autonomy --> Empowered
+    Alignment --> Empowered
+
+    style Pillars fill:#c8e6c9
+```
+
+## Platform vs Experience Teams
+
+```mermaid
+flowchart TB
+    subgraph Platform["PLATFORM TEAMS"]
+        P1["Enable other teams"]
+        P2["Provide shared services"]
+        P3["Technical focus"]
+        P4["Internal customers"]
+    end
+
+    subgraph Experience["EXPERIENCE TEAMS"]
+        E1["Own customer journeys"]
+        E2["Drive business outcomes"]
+        E3["Customer focus"]
+        E4["External customers"]
+    end
+
+    Platform -.->|"Enable"| Experience
+
+    style Platform fill:#e3f2fd
+    style Experience fill:#c8e6c9
+```
+
+## Where This Appears
+
+| Part | Chapters | Context |
+|------|----------|---------|
+| V | [Ch 41-47](/chapters/part-05-topology/overview/) | Full coverage |
+| VIII | Case Study | Applied example |
+
+## Related Concepts
+
+- [Empowered Teams](/concepts/empowered-teams/)
+- [The Product Model](/concepts/product-model/)

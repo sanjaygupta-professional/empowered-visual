@@ -1,0 +1,90 @@
+---
+title: "Part V: Team Topology"
+description: How to structure product teams for empowerment
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+# Part V: Team Topology
+
+**Chapters 41-47** | Structuring teams for success
+
+<Aside type="tip" title="Simply Explained">
+**In one sentence:** How you organize teams matters—the right structure lets teams work independently, the wrong structure makes everyone wait on everyone else.
+
+**Imagine this:** A pizza restaurant. Bad structure: one person takes orders, makes pizza, AND delivers—bottleneck! Good structure: one team takes orders, another makes pizzas, another delivers. They work at the same time, not waiting in line.
+
+There are two main team types: **Platform teams** build tools that other teams use (like the kitchen). **Experience teams** directly serve customers (like the delivery drivers). Both need to work together smoothly.
+
+**Remember:** Structure your teams so they can run fast without constantly waiting for each other.
+</Aside>
+
+## Part Overview
+
+Team topology is about how you structure your product teams. The right structure enables empowerment; the wrong structure prevents it.
+
+```mermaid
+flowchart TB
+    subgraph Topology["TEAM TOPOLOGY"]
+        Opt["Optimizing for<br/>Empowerment<br/>Ch 41"]
+        Types["Team Types<br/>Ch 42"]
+        Platform["Empowering<br/>Platform Teams<br/>Ch 43"]
+        Experience["Empowering<br/>Experience Teams<br/>Ch 44"]
+        Proximity["Topology &<br/>Proximity<br/>Ch 45"]
+        Evolution["Topology<br/>Evolution<br/>Ch 46"]
+    end
+
+    Opt --> Types --> Platform --> Experience --> Proximity --> Evolution
+
+    style Topology fill:#e3f2fd
+```
+
+## Key Principles
+
+```mermaid
+flowchart TB
+    subgraph Principles["TOPOLOGY PRINCIPLES"]
+        O["Ownership<br/>Clear ownership areas"]
+        A["Autonomy<br/>Minimal dependencies"]
+        Al["Alignment<br/>Connected to strategy"]
+    end
+
+    Principles --> Empowered["Empowered<br/>Teams"]
+
+    style Principles fill:#c8e6c9
+```
+
+## Team Types
+
+```mermaid
+flowchart LR
+    subgraph Platform["PLATFORM TEAMS"]
+        P1["Enable other teams"]
+        P2["Provide services"]
+        P3["Reduce complexity"]
+    end
+
+    subgraph Experience["EXPERIENCE TEAMS"]
+        E1["Own customer journeys"]
+        E2["Drive outcomes"]
+        E3["Full-stack capability"]
+    end
+
+    Platform -.->|"Enable"| Experience
+
+    style Platform fill:#e3f2fd
+    style Experience fill:#c8e6c9
+```
+
+## Chapters in This Part
+
+| Chapter | Title | Key Concept |
+|---------|-------|-------------|
+| [Ch 41](/chapters/part-05-topology/ch41-optimizing/) | Optimizing for Empowerment | Ownership, autonomy, alignment |
+| [Ch 42](/chapters/part-05-topology/ch42-team-types/) | Team Types | Platform vs experience |
+| [Ch 43-47](/chapters/part-05-topology/ch43-47-teams/) | Platform & Experience Teams | Empowering each type |
+
+## Related Concepts
+
+- [Team Topology](/concepts/team-topology/)
+- [Empowered Teams](/concepts/empowered-teams/)

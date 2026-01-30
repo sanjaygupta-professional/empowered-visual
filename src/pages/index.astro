@@ -1,0 +1,650 @@
+---
+// Custom landing page for EMPOWERED Visual Companion
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMPOWERED Visual Companion</title>
+  <meta name="description" content="Visual learning companion for EMPOWERED: Ordinary People, Extraordinary Products by Marty Cagan" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #0a0a0b;
+      --bg-section: #111113;
+      --text-primary: #f5f5f5;
+      --text-secondary: #a0a0a0;
+      --text-muted: #666;
+
+      /* EMPOWERED colors - Missionaries vs Mercenaries */
+      --empowered: #4ade80;      /* Green - empowered teams */
+      --feature: #f87171;        /* Red - feature teams */
+      --vision: #a78bfa;         /* Purple - vision/future */
+      --current: #60a5fa;        /* Blue - current state */
+      --neutral: #fbbf24;        /* Yellow - highlights */
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Visual Metaphor - Missionaries vs Mercenaries */
+    .visual-metaphor {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .team-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .team-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .team-icon.missionary {
+      background: rgba(74, 222, 128, 0.1);
+      border: 2px solid var(--empowered);
+      box-shadow: 0 0 30px rgba(74, 222, 128, 0.2);
+    }
+
+    .team-icon.mercenary {
+      background: rgba(248, 113, 113, 0.1);
+      border: 2px dashed var(--feature);
+      opacity: 0.6;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .team-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .team-label.missionary { color: var(--empowered); }
+    .team-label.mercenary { color: var(--feature); opacity: 0.6; }
+
+    .vs-divider {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    /* Title Styling */
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--empowered), var(--vision));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    /* Quote Section */
+    .quote-section {
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    .quote {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .author-name {
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .book-title-attr {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA Buttons */
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--empowered);
+      color: #0a0a0b;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(74, 222, 128, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      padding: 1rem 2rem;
+      border: 1px solid var(--text-muted);
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-primary);
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-dark {
+      background: var(--bg-section);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Parts Grid */
+    .parts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .part-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-left: 3px solid var(--empowered);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .part-card:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateX(4px);
+    }
+
+    .part-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: rgba(255,255,255,0.1);
+      float: right;
+    }
+
+    .part-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .part-chapters {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--empowered);
+      margin-bottom: 0.5rem;
+    }
+
+    .part-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Concepts Grid */
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .concept-card {
+      background: var(--bg-dark);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+
+    .concept-card:hover {
+      background: rgba(255,255,255,0.05);
+    }
+
+    .concept-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .concept-icon.empowered { color: var(--empowered); }
+    .concept-icon.vision { color: var(--vision); }
+    .concept-icon.current { color: var(--current); }
+    .concept-icon.neutral { color: var(--neutral); }
+
+    .concept-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .concept-brief {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Learning Paths */
+    .paths-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .path-card {
+      background: var(--bg-dark);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .path-card:hover {
+      border-color: var(--empowered);
+    }
+
+    .path-level {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      background: rgba(74, 222, 128, 0.1);
+      color: var(--empowered);
+      margin-bottom: 1rem;
+    }
+
+    .path-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .path-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .path-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Final CTA */
+    .final-cta {
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .final-cta h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .final-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer a {
+      color: var(--text-secondary);
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      .visual-metaphor {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .vs-divider {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <!-- Visual Metaphor - Missionaries vs Mercenaries -->
+    <div class="visual-metaphor">
+      <div class="team-visual">
+        <div class="team-icon missionary">
+          <span>🚀</span>
+        </div>
+        <span class="team-label missionary">Missionaries</span>
+      </div>
+      <span class="vs-divider">vs</span>
+      <div class="team-visual">
+        <div class="team-icon mercenary">
+          <span>📋</span>
+        </div>
+        <span class="team-label mercenary">Mercenaries</span>
+      </div>
+    </div>
+
+    <div class="title-group">
+      <h1>EMPOWERED</h1>
+      <p class="subtitle">Visual Learning Companion</p>
+    </div>
+
+    <div class="quote-section">
+      <blockquote class="quote">
+        "Leadership is about recognizing that there's a greatness in everyone, and your job is to create an environment where that greatness can emerge."
+      </blockquote>
+      <div class="attribution">
+        <span class="author-name">Bill Campbell</span>
+        <p class="book-title-attr">via Marty Cagan, EMPOWERED</p>
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="/paths/product-leader/" class="btn-primary">Begin Your Journey</a>
+      <a href="/concepts/empowered-teams/" class="btn-secondary">Explore Concepts</a>
+    </div>
+  </section>
+
+  <!-- PARTS JOURNEY -->
+  <section class="section-dark">
+    <h2 class="section-title">The Journey Through 10 Parts</h2>
+    <p class="section-subtitle">
+      Navigate through 81 chapters exploring how to build truly empowered product teams that create extraordinary products.
+    </p>
+    <div class="parts-grid">
+      <a href="/chapters/part-01-lessons/overview/" class="part-card fade-in">
+        <span class="part-number">I</span>
+        <h3 class="part-title">Lessons from Top Tech Companies</h3>
+        <p class="part-chapters">Chapters 1-6</p>
+        <p class="part-desc">What separates the best product companies from the rest</p>
+      </a>
+      <a href="/chapters/part-02-coaching/overview/" class="part-card fade-in">
+        <span class="part-number">II</span>
+        <h3 class="part-title">Coaching</h3>
+        <p class="part-chapters">Chapters 7-25</p>
+        <p class="part-desc">The coaching mindset and developing people</p>
+      </a>
+      <a href="/chapters/part-03-staffing/overview/" class="part-card fade-in">
+        <span class="part-number">III</span>
+        <h3 class="part-title">Staffing</h3>
+        <p class="part-chapters">Chapters 26-36</p>
+        <p class="part-desc">Competence, character, and building teams</p>
+      </a>
+      <a href="/chapters/part-04-vision/overview/" class="part-card fade-in">
+        <span class="part-number">IV</span>
+        <h3 class="part-title">Product Vision & Principles</h3>
+        <p class="part-chapters">Chapters 37-40</p>
+        <p class="part-desc">Creating and sharing a compelling vision</p>
+      </a>
+      <a href="/chapters/part-05-topology/overview/" class="part-card fade-in">
+        <span class="part-number">V</span>
+        <h3 class="part-title">Team Topology</h3>
+        <p class="part-chapters">Chapters 41-47</p>
+        <p class="part-desc">Platform teams, experience teams, and structure</p>
+      </a>
+      <a href="/chapters/part-06-strategy/overview/" class="part-card fade-in">
+        <span class="part-number">VI</span>
+        <h3 class="part-title">Product Strategy</h3>
+        <p class="part-chapters">Chapters 48-52</p>
+        <p class="part-desc">Focus, insights, and strategic actions</p>
+      </a>
+      <a href="/chapters/part-07-objectives/overview/" class="part-card fade-in">
+        <span class="part-number">VII</span>
+        <h3 class="part-title">Team Objectives</h3>
+        <p class="part-chapters">Chapters 53-61</p>
+        <p class="part-desc">OKRs, empowerment, and accountability</p>
+      </a>
+      <a href="/chapters/part-08-casestudy/overview/" class="part-card fade-in">
+        <span class="part-number">VIII</span>
+        <h3 class="part-title">Case Study</h3>
+        <p class="part-chapters">Chapters 62-70</p>
+        <p class="part-desc">A fictional company transformation story</p>
+      </a>
+      <a href="/chapters/part-09-collaboration/overview/" class="part-card fade-in">
+        <span class="part-number">IX</span>
+        <h3 class="part-title">Business Collaboration</h3>
+        <p class="part-chapters">Chapters 71-76</p>
+        <p class="part-desc">Stakeholder management and evangelism</p>
+      </a>
+      <a href="/chapters/part-10-transformation/overview/" class="part-card fade-in">
+        <span class="part-number">X</span>
+        <h3 class="part-title">Inspired, Empowered, Transformed</h3>
+        <p class="part-chapters">Chapters 77-81</p>
+        <p class="part-desc">The transformation journey</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CORE CONCEPTS -->
+  <section>
+    <h2 class="section-title">Core Concepts</h2>
+    <p class="section-subtitle">
+      Master the fundamental ideas that distinguish great product companies from the rest.
+    </p>
+    <div class="concepts-grid">
+      <a href="/concepts/empowered-teams/" class="concept-card fade-in">
+        <div class="concept-icon empowered">🚀</div>
+        <h4 class="concept-name">Empowered Teams</h4>
+        <p class="concept-brief">Missionaries vs mercenaries</p>
+      </a>
+      <a href="/concepts/coaching-framework/" class="concept-card fade-in">
+        <div class="concept-icon current">🎯</div>
+        <h4 class="concept-name">Coaching Framework</h4>
+        <p class="concept-brief">Developing people as job #1</p>
+      </a>
+      <a href="/concepts/product-model/" class="concept-card fade-in">
+        <div class="concept-icon neutral">⚙️</div>
+        <h4 class="concept-name">The Product Model</h4>
+        <p class="concept-brief">How strong teams work</p>
+      </a>
+      <a href="/concepts/team-topology/" class="concept-card fade-in">
+        <div class="concept-icon current">🏗️</div>
+        <h4 class="concept-name">Team Topology</h4>
+        <p class="concept-brief">Platform vs experience teams</p>
+      </a>
+      <a href="/concepts/product-vision/" class="concept-card fade-in">
+        <div class="concept-icon vision">🌟</div>
+        <h4 class="concept-name">Product Vision</h4>
+        <p class="concept-brief">The north star for teams</p>
+      </a>
+      <a href="/concepts/okr-framework/" class="concept-card fade-in">
+        <div class="concept-icon empowered">📊</div>
+        <h4 class="concept-name">OKR Framework</h4>
+        <p class="concept-brief">Objectives and key results</p>
+      </a>
+      <a href="/concepts/transformation/" class="concept-card fade-in">
+        <div class="concept-icon vision">🔄</div>
+        <h4 class="concept-name">Transformation</h4>
+        <p class="concept-brief">The journey to empowerment</p>
+      </a>
+      <a href="/concepts/leadership/" class="concept-card fade-in">
+        <div class="concept-icon neutral">👑</div>
+        <h4 class="concept-name">Leadership</h4>
+        <p class="concept-brief">Inspiration and execution</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- LEARNING PATHS -->
+  <section class="section-dark">
+    <h2 class="section-title">Choose Your Path</h2>
+    <p class="section-subtitle">
+      Structured learning journeys from foundational concepts to advanced transformation.
+    </p>
+    <div class="paths-grid">
+      <a href="/paths/product-leader/" class="path-card fade-in">
+        <span class="path-level">Beginner</span>
+        <h3 class="path-title">Product Leader</h3>
+        <p class="path-desc">Understand the core differences between empowered and feature teams, and the role of strong product leadership.</p>
+        <p class="path-meta">Parts I-II · 25 Chapters</p>
+      </a>
+      <a href="/paths/team-builder/" class="path-card fade-in">
+        <span class="path-level">Intermediate</span>
+        <h3 class="path-title">Team Builder</h3>
+        <p class="path-desc">Learn to staff, structure, and empower product teams with the right topology and objectives.</p>
+        <p class="path-meta">Parts III-VII · 36 Chapters</p>
+      </a>
+      <a href="/paths/transformer/" class="path-card fade-in">
+        <span class="path-level">Advanced</span>
+        <h3 class="path-title">Transformer</h3>
+        <p class="path-desc">Lead organizational transformation from feature-focused to truly empowered product teams.</p>
+        <p class="path-meta">Parts VIII-X · 20 Chapters</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Ready to Empower Your Teams?</h2>
+    <p>Transform how you think about building products and developing people.</p>
+    <a href="/paths/product-leader/" class="btn-primary">Start Learning Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>A visual learning companion for <a href="https://www.amazon.com/EMPOWERED-Ordinary-Extraordinary-Products-Silicon/dp/111969129X" target="_blank">EMPOWERED: Ordinary People, Extraordinary Products</a> by Marty Cagan & Chris Jones</p>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
